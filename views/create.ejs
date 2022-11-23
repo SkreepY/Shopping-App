@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <main>
+<form action="/shopping" method="post"><!--Post from /shopping page-->
+    
+    <label for="title">Title: </label>
+    <input type="text" name="title" class="title">
+    <label for="description">Description: </label>
+    <textarea name="description" id="" cols="30" rows="10"></textarea>
+    <label for="price">Price: </label>
+    <input type="text" name="price" class="price">
+    <label for="image">Image URL: </label>
+    <input type="text" name="image" class="image">
+
+    
+    <input name= "Submit" value="Submit" type="submit">
+</form>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

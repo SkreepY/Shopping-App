@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <main>
+    <h1>Furnances</h1>
+    <div>
+        <ul>
+            <% if(datas.length > 0){ %>
+                <% datas.forEach((data)=>{ %>
+                    <li><a href="/shopping/details/<%= data._id %>">
+                        <img src="../images/<%= data.image %>" alt="">
+                        <h3 class="title"><%= data.title %></h3>
+                    </a></li>
+             <%   }) %>
+            <% }else{ %>
+                <p>There is not furnance in here</p>
+           <% } %>
+            
+        </ul>
+    </div>
+    </main>
+    <%- include("partials/footer.ejs") %>
+</body>
+</html>

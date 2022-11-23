@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head.ejs") %>
+<body>
+    <%- include("partials/nav.ejs") %>
+    <main>
+ 
+    <h2><%= details.title %></h2>
+    <div>
+       <p> <%= details.description %></p>
+       <p><%= details.price %></p>
+    </div>
+    <a data-doc = "<%= details._id %>" class="delete">Delete</a>
+    </main>
+    <%- include("partials/footer.ejs") %>
+    <script>
+       const trashcan = document.querySelector("a.delete")
+       trashcan.addEventListener("click",(e)=>{
+        const endpoint = `/shopping/${trashcan.dataset.doc}`
+        fetch(endpoint,{
+            method: "DELETE"
+        }).then((response)=>{
+            response.json()
+        }).then((data)=>{
+            alert("Element Deleted!")
+        }).catch((err)=>{
+            console.log(err)
+        })
+       })
+    </script>
+</body>
+</html>
